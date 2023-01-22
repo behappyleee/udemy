@@ -1,0 +1,36 @@
+-- PROMOPT : 우분투에서 입력 창 
+-- 유저명@호스트명 으로 보통 나타냄
+
+Linux / Mac - File System
+
+Ubuntu - Files ... ???
+
+Unix - 폴더들의 계층을 이해하여야 함
+
+RootDirectory - 실제 이름은 / , Root 라는 디렉토리도 존재, Root Directory 는 최상위 디렉토리임
+보통 Root Directory 라고 하면 / 임
+
+그다음 Home 디렉토리가 중요함 Home 디렉토리안에는 사용자 관련 정보가 있음
+
+pwd - print working directory (터미널에서 내가 어디있는지 보여줌)
+
+ls - list 
+ls 아무 옵션 없이하면 현재 작업 디렉토리 목록이 출력이 됨
+
+-- ls option 
+ls -l =>  -l     use a long listing format (list 형으로 보여줌)
+ls -a => -a    숨겨져 있는 파일까지 전부 보여 줌 그냥 ls 만으로는 보여지지 않는 파일까지 표출
+ls -al => 두개의 옵션을 합쳐서 표출이 가능
+
+ -h, --human-readable with -l and -s, print sizes like 1K 234M 2G etc. (h 옵션을 붙여줄 시 파일의 용량 사이즈를 줄여서 표현이 가능)
+
+
+cd - Change Directory  (절대경로/상대경로 로 디렉토리 이동이 가능)
+
+Linux Unix System 계열에는 . 점 한개는 현재 디렉토리를 가르키는 구문임
+.. 점 두개는 부모 디렉토리를 가르키는 구문
+
+
+
+
+

@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
 	<section name="SmartImportWizard">
 		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
 		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\wait-notify-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\thread-termination-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\threads-creation-part1"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\thread-creation-part2-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\read-write-lock-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\optimizing-for-throughput-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\optimizing-for-latency-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\joining-threads-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\introduction-to-critical-sections-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\deadlocks-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\data-races-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\critical-sections-and-synchronization-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\atomic-reference-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\atomic-integer-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading\application-metrics-example"/>
+			<item value="C:\Users\dhfhf\Desktop\myfolder\udemy\multi-threading"/>
+		</list>
 	</section>
 </section>
