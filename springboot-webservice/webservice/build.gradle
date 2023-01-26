@@ -1,3 +1,6 @@
+
+/* spring boot 3.0.0 version 이상 부터는 java 17만 적용이 가능함 JDK 버전 변경 원할 시 springboot 버전 낮추기 */
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.2'
