@@ -6,8 +6,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.webservice.domain.posts.PostsRepository;
+import com.springboot.webservice.dto.posts.PostsSaveRequestDto;
+
+import lombok.AllArgsConstructor;
 
 @RestController
+@AllArgsConstructor
 public class WebRestController {
 	
 	// postRepository 생성자 필드에 @Autowired 어노테이션이 없음
@@ -16,7 +20,7 @@ public class WebRestController {
 	// 이중 가장 권하는 방식은 생성자로 주입받는 방식임 @Autowired 는 비권장방식
 	// 즉 생성자로 Bean 객체를 받도록 하면 @Autowired 와 같은 효과를 볼 수 있음 
 	
-	
+	// AllArgsConstructor 로 의존성 주입을 받음
 	private PostsRepository postRepository;
 	
 	// RestController �� @ResponseBody �� ��� �޼��忡 ���� ������ 
@@ -27,7 +31,7 @@ public class WebRestController {
 	
 	@PostMapping("/posts")
 	public void savePosts(@RequestBody PostsSaveRequestDto dto) {
-		postRepository.save(dto);
+		postRepository.save(dto.toEntity());
 	}
 	
 	

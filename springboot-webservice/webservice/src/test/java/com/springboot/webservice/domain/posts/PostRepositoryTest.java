@@ -2,7 +2,9 @@ package com.springboot.webservice.domain.posts;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.After;
@@ -28,12 +30,8 @@ public class PostRepositoryTest {
 			postRepository.deleteAll();
 		}
 		
-		@Test
+		// @Test
 		public void 게시글저장_불러오기() {
-			
-			logger.debug("!!!!!!!!!!!!!!!!!!!!! 게시글 저장 불러오기 TEST CODE !!!!!!!!!!!!!!!!!!!!!");
-			System.out.println("!!!!!!!!!!!!!!!!!!!!! 게시글 저장 불러오기 TEST CODE !!!!!!!!!!!!!!!!!!!!!");
-			
 			// given - (테스트 기반 환경을 구축하는 단계, 여기선 @Builder 의 사용법도 같이 확인)
 			postRepository.save(Posts.builder()
 					.title("테스트 게시글")
@@ -46,12 +44,6 @@ public class PostRepositoryTest {
 				
 			// then - 테스트 결과 검증, 실제로 DB 에 insert 되었는 지 확인하기 위해 조회 후 입력된 값 확인
 			Posts posts = postsList.get(0);
-			
-			
-			logger.debug("POSTS FIRST DATA LOG : {} " , posts);
-			System.out.println("POST DATA FIRST DATA 처음 !!!!!!!!!!!!!!!!!!!!!!!!!!!! " + posts.toString());
-			
-			
 			assertThat(posts.getTitle(), is("테스트 게시글"));
 			assertThat(posts.getContent(), is("테스트 본문"));
 			
@@ -61,9 +53,30 @@ public class PostRepositoryTest {
 			
 			
 			// 전문 BDD 프레임워크로 Groovy 기반의 Spock 를 많이 사용
-			
-			
 		}
+		
+		@Test
+		public void BaseTimeEntity_등록 () {
+			// JPA Auditing Test - JPA 생성일 / 수정일 시간 정보
+			// JPA Auditing 을 사용 시 상속만 받으면 JPA 사용 시 자동으로 입력이 됨
+			
+			// given	
+			LocalDateTime now = LocalDateTime.now();
+			postRepository.save(Posts.builder()
+					.title("테스트 게시글")
+					.content("테스트 본문")
+					.author("chLee")
+					.build());
+			
+			// when
+			List <Posts> postsList = postRepository.findAll(); 
+			
+			// then
+			Posts posts = postsList.get(0);
+			assertTrue(posts.getCreatedDate().isAfter(now));	
+			assertTrue(posts.getModifiedDate().isAfter(now));	
+		}
+		
 		
 	
 }

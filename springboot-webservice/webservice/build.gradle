@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.9.RELEASE'
+		springBootVersion = '1.5.10.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -30,7 +30,14 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.15'
+	
+	// compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.15'
+	// compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.2'
+	// https://mvnrepository.com/artifact/com.github.spullara.mustache.java/handlebar
+	// https://mvnrepository.com/artifact/com.github.jknack/handlebars-springmvc
+	implementation group: 'com.github.jknack', name: 'handlebars-springmvc', version: '4.0.3'
+
+	
 	compile("org.mariadb.jdbc:mariadb-java-client")
 	runtime('com.h2database:h2')
 	compileOnly('org.projectlombok:lombok')
