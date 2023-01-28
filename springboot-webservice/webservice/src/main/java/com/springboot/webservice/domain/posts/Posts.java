@@ -1,6 +1,7 @@
 package com.springboot.webservice.domain.posts;
 
 import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -9,8 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 @NoArgsConstructor(access =AccessLevel.PROTECTED)
 @Getter
@@ -64,6 +63,5 @@ public class Posts {
 		this.content = content;
 		this.author = author;
 	}
-	
 	
 }
