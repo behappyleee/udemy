@@ -1,52 +1,59 @@
-buildscript {
-	ext {
-		springBootVersion = '1.5.10.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
-	}
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.2'
+	id 'io.spring.dependency-management' version '1.1.0'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-
 group = 'com.springboot'
-version = '0.0.7'
-sourceCompatibility = 1.8
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
 
 repositories {
 	mavenCentral()
 }
 
-//Spring Boot Overriding
-ext['hibernate.version'] = '5.2.11.Final'
-
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-web')
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// https://mvnrepository.com/artifact/pl.allegro.tech.boot/handlebars-spring-boot-starter
+	implementation group: 'pl.allegro.tech.boot', name: 'handlebars-spring-boot-starter', version: '0.3.4'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'//thymeleaf
 	
-	// compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.15'
-	// compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.2'
-	// https://mvnrepository.com/artifact/com.github.spullara.mustache.java/handlebar
-	// https://mvnrepository.com/artifact/com.github.jknack/handlebars-springmvc
-	implementation group: 'com.github.jknack', name: 'handlebars-springmvc', version: '4.0.3'
+	// https://mvnrepository.com/artifact/org.webjars/webjars-locator
+	implementation 'org.webjars:webjars-locator-core'
+	implementation 'org.webjars:sockjs-client:1.0.2'
+	implementation 'org.webjars:stomp-websocket:2.3.3'
+	implementation 'org.webjars:bootstrap:3.3.7'
+	implementation 'org.webjars:jquery:3.1.1-1'
+	
+	
+	
+	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.1.RELEASE'
+	
+	
+	//testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+	// testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.3.8.RELEASE'
 
-	
-	compile("org.mariadb.jdbc:mariadb-java-client")
-	runtime('com.h2database:h2')
-	compileOnly('org.projectlombok:lombok')
-	testCompile 'junit:junit:4.12'
-	/*testCompile('org.springframework.boot:spring-boot-starter-test') {
-		// exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}*
-	/
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+	// testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.2.3.RELEASE'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+	// testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.1.RELEASE'
+	// https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
+	// implementation group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.11.RELEASE'
+
 }
 
-/* spring boot 3.0.0 version 이상 부터는 java 17만 적용이 가능함 JDK 버전 변경 원할 시 springboot 버전 낮추기 */
-
+tasks.named('test') {
+	useJUnitPlatform()
+}

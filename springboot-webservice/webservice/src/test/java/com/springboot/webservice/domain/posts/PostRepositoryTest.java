@@ -2,13 +2,13 @@ package com.springboot.webservice.domain.posts;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.After;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,13 +44,15 @@ public class PostRepositoryTest {
 				
 			// then - 테스트 결과 검증, 실제로 DB 에 insert 되었는 지 확인하기 위해 조회 후 입력된 값 확인
 			Posts posts = postsList.get(0);
+			
+			
+			assertThat(posts.getTitle(), is("테스트 게시글"));
+			
 			assertThat(posts.getTitle(), is("테스트 게시글"));
 			assertThat(posts.getContent(), is("테스트 본문"));
 			
 			// Given When Then 은 BDD (Behaviour-Driven-Development) 에서 사용 하는 용어임
 			// JUnit 에서는 이를 명시적으로 지원해주지 않아 주석으로 표현
-			
-			
 			
 			// 전문 BDD 프레임워크로 Groovy 기반의 Spock 를 많이 사용
 		}

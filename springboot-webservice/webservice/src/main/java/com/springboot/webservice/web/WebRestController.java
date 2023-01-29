@@ -1,5 +1,7 @@
 package com.springboot.webservice.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,12 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.webservice.domain.posts.PostsRepository;
 import com.springboot.webservice.dto.posts.PostsSaveRequestDto;
+import com.springboot.webservice.service.PostsService;
 
 import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
 public class WebRestController {
+	
+	private static Logger logger = LoggerFactory.getLogger(WebRestController.class);
 	
 	// postRepository 생성자 필드에 @Autowired 어노테이션이 없음
 	// SpringFramework 에서 bean 을 주입 받는 방법은 총 3가지임 (@Autowired, setter, 생성자)
@@ -23,6 +28,8 @@ public class WebRestController {
 	// AllArgsConstructor 로 의존성 주입을 받음
 	private PostsRepository postRepository;
 	
+	private PostsService postsService;
+	
 	// RestController �� @ResponseBody �� ��� �޼��忡 ���� ������ 
 	@GetMapping("/hello")
 	public String hello() {
@@ -31,7 +38,10 @@ public class WebRestController {
 	
 	@PostMapping("/posts")
 	public void savePosts(@RequestBody PostsSaveRequestDto dto) {
-		postRepository.save(dto.toEntity());
+		logger.info("POSTS SAVE DATA !!! : {} " , dto);
+		// Service 에서 Service 를 만들었으므로 service 에 save 로 교체
+		// postRepository.save(dto.toEntity());
+		postsService.save(dto);
 	}
 	
 	

@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.AllArgsConstructor;
 
-@Controller
+
 @AllArgsConstructor
+@Controller
 public class WebController {
 
 	private static Logger logger = LoggerFactory.getLogger(WebController.class);
