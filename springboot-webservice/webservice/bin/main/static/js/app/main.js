@@ -17,19 +17,6 @@ var main = {
             author: $('#author').val(),
             content: $('#content').val()
         };
-	
-	
-		console.log('등록 데이터 : ' + JSON.stringify(data));
-	
-		/*axios({
-			type: 'POST',
-			url: '/posts',
-			data: JSON.stringify(data),
-		}).then((res) => {
-			console.log('AXIOS RES : ' + JSON.stringify(res));
-		}).catch((err) => {
-			console.log('AXIOS ERR : ' + JSON.stringify(ERR));		
-		})*/
 		
         $.ajax({
             type: 'POST',
@@ -41,9 +28,8 @@ var main = {
             alert('글이 등록되었습니다.');
             location.reload();
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert("ERR 입니다 : " + JSON.stringify(error));
         });
-        
     }
 };
 
