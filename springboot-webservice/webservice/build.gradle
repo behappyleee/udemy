@@ -25,7 +25,11 @@ dependencies {
 	// https://mvnrepository.com/artifact/pl.allegro.tech.boot/handlebars-spring-boot-starter
 	implementation group: 'pl.allegro.tech.boot', name: 'handlebars-spring-boot-starter', version: '0.3.4'
 	compileOnly 'org.projectlombok:lombok'
+	
 	runtimeOnly 'com.h2database:h2'
+	// implementation 'com.h2database:h2'
+   	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'//thymeleaf
 	
@@ -35,8 +39,7 @@ dependencies {
 	implementation 'org.webjars:stomp-websocket:2.3.3'
 	implementation 'org.webjars:bootstrap:3.3.7'
 	implementation 'org.webjars:jquery:3.1.1-1'
-	
-	
+		
 	
 	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.1.RELEASE'
 	
