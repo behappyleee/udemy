@@ -1,11 +1,15 @@
 package com.springboot.webservice.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.webservice.domain.posts.PostsRepository;
+import com.springboot.webservice.dto.posts.PostsMainResponseDto;
 import com.springboot.webservice.dto.posts.PostsSaveRequestDto;
 
 import lombok.AllArgsConstructor;
@@ -36,6 +40,14 @@ public class PostsService {
 		return postsRepository.save(dto.toEntity()).getId();
 	}
 	
+	
+	@Transactional(readOnly = true)	// readOnly 를 주면 트랜잭션 범위는 유지하되 조회 기능만 남겨두어 조회 속도가 개선이 됨 (등록/수정/삭제 없는 메서드에선 사용을 추천)
+	public List<PostsMainResponseDto> findAllDesc() {
+		return postsRepository.findAllDesc()
+				// .map(PostsMainResponseDto::new) 은 .map(posts -> new PostsMainResponseDto(posts)) 와 같음
+				.map(PostsMainResponseDto::new)
+				.collect(Collectors.toList());
+	}
 	
 	
 	

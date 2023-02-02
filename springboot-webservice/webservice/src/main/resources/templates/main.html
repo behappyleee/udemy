@@ -16,8 +16,44 @@
 	
 	 <div class="col-md-12">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savePostsModal">글 등록</button>
+    	<br />
+    	<br />
+ 	   	<!-- 글 저장 목록 출력 -->
+    	<table class="table table-bordered table-striped text-center">
+    		 <thead class="thead-strong">
+                <tr>
+                    <th>게시글번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>최종수정일</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            	<tr th:each = "board:${posts}">
+                    <td th:text="${board.id}"> ID 입니다.</td>
+                    <td th:text="${board.title}"> Title 입니다.</td>
+                    <td th:text="${board.author}"> Author 입니다.</td>
+                 	<td th:text="${board.modifiedDate}"> 최종 수정일 입니다.</td>
+                </tr>
+            
+	            <!--
+	            {{#each posts}}
+	                <tr>
+	                    <td>{{id}}</td>
+	                    <td>{{title}}</td>
+	                    <td>{{author}}</td>
+	                    <td>{{modifiedDate}}</td>
+	                </tr>
+	            {{/each}}
+	            -->
+	            
+            </tbody>
+    	</table>	
     </div>
 	
+	
+	
+	 <!-- Modal 영역 -->
 	 <div class="modal fade" id="savePostsModal" tabindex="-1" role="dialog" aria-labelledby="savePostsLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

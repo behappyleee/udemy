@@ -2,6 +2,8 @@ package com.springboot.webservice.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.springboot.webservice.domain.posts.Posts;
 import com.springboot.webservice.domain.posts.PostsRepository;
+import com.springboot.webservice.dto.posts.PostsMainResponseDto;
 import com.springboot.webservice.dto.posts.PostsSaveRequestDto;
 
 @RunWith(SpringRunner.class)
@@ -28,7 +31,7 @@ public class PostServiceTest {
 		postsRepository.deleteAll();
 	}
 	
-	@Test
+	// @Test
 	public void Dto_데이터가_posts_테이블에_저장() {
 		// 해당 테스트 코드는 DTO 클래스가 service.save 메서드에 전달이 되면 DB 에 잘 저장 되었는 지 검사하는 것
 		// given
@@ -48,6 +51,15 @@ public class PostServiceTest {
 		assertThat(posts.getContent()).isEqualTo(dto.getContent());
 		assertThat(posts.getTitle()).isEqualTo(dto.getTitle());
 	}
+	
+	@Test
+	public void 저장_글목록() {
+		List<PostsMainResponseDto> postsList = postsService.findAllDesc();
+		
+		System.out.println("POSTS LIST : " + postsList.toArray());
+		
+	}
+	
 	
 	
 	

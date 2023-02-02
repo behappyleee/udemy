@@ -5,6 +5,7 @@ import com.springboot.webservice.domain.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -43,7 +44,7 @@ public class Posts extends BaseTimeEntity {
 	
 	// Lombok 의 어노테이션 들은 코드 변경량을 최소화 시켜주기에 사용을 권장
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 해당 @GeneratedValue 에 starategey=GenerationType.IDENTITY 를 추가해주어야 insert 문이 들어감
 	private Long id;
 	
 	@Column(length = 500, nullable = false)
