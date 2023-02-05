@@ -32,7 +32,8 @@ public class PostServiceTest {
 	}
 	
 	// @Test
-	public void Dto_데이터가_posts_테이블에_저장() {
+	// public void Dto_데이터가_posts_테이블에_저장() {
+	public void Dto__posts_table_save() {
 		// 해당 테스트 코드는 DTO 클래스가 service.save 메서드에 전달이 되면 DB 에 잘 저장 되었는 지 검사하는 것
 		// given
 		PostsSaveRequestDto dto = PostsSaveRequestDto.builder()
@@ -53,7 +54,8 @@ public class PostServiceTest {
 	}
 	
 	@Test
-	public void 저장_글목록() {
+	// public void 저장_글목록() {
+	public void saved_list() {
 		List<PostsMainResponseDto> postsList = postsService.findAllDesc();
 		
 		System.out.println("POSTS LIST : " + postsList.toArray());

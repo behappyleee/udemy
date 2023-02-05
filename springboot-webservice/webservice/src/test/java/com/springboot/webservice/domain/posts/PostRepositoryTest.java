@@ -30,7 +30,8 @@ public class PostRepositoryTest {
 		}
 		
 		@Test
-		public void 게시글저장_불러오기() {
+		// public void 게시글저장_불러오기() {
+		public void getBoardSave () {
 			// given - (테스트 기반 환경을 구축하는 단계, 여기선 @Builder 의 사용법도 같이 확인)
 			postRepository.save(Posts.builder()
 					.title("테스트 게시글")
@@ -60,7 +61,8 @@ public class PostRepositoryTest {
 		}
 		
 		@Test
-		public void BaseTimeEntity_등록 () {
+		// public void BaseTimeEntity_등록 () {
+		public void BaseTimeEntity_save () {
 			// JPA Auditing Test - JPA 생성일 / 수정일 시간 정보
 			// JPA Auditing 을 사용 시 상속만 받으면 JPA 사용 시 자동으로 입력이 됨
 			
