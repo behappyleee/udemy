@@ -1,6 +1,7 @@
 package com.springboot.webservice.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertTrue;
+
 
 import java.util.List;
 
@@ -48,9 +49,13 @@ public class PostServiceTest {
 		// then
 		Posts posts = postsRepository.findAll().get(0);
 		
-		assertThat(posts.getAuthor()).isEqualTo(dto.getAuthor());
-		assertThat(posts.getContent()).isEqualTo(dto.getContent());
-		assertThat(posts.getTitle()).isEqualTo(dto.getTitle());
+		assertTrue(posts.getAuthor().equals(dto.getAuthor()));
+		assertTrue(posts.getContent().equals(dto.getContent()));
+		assertTrue(posts.getTitle().equals(dto.getTitle()));
+		
+//		assertThat(posts.getAuthor()).isEqualTo(dto.getAuthor());
+//		assertThat(posts.getContent()).isEqualTo(dto.getContent());
+//		assertThat(posts.getTitle()).isEqualTo(dto.getTitle());
 	}
 	
 	@Test
