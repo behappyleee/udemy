@@ -41,13 +41,18 @@ dependencies {
 	implementation 'org.webjars:jquery:3.1.1-1'
 		
 	compileOnly("org.springframework.boot:spring-boot-devtools") 
- 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+    //JUnit4 추가
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.1.RELEASE'
+	//JUnit4 추가
+	testImplementation("org.junit.vintage:junit-vintage-engine") {
+		exclude group: "org.hamcrest", module: "hamcrest-core"
+	}
+	
+	// https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
+	// testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '4.12.2'
  	
- 	test {
- 	   useJUnitPlatform {
-    		includeEngines 'junit-vintage'
-        	// excludeEngines 'junit-jupiter'
-    }
+ 	// testImplementation('org.springframework.boot:spring-boot-starter-test')
  	
 	// testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.1.RELEASE'
 	//testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -63,6 +68,9 @@ dependencies {
 
 }
 
-tasks.named('test') {
+test {
 	useJUnitPlatform()
 }
+
+
+
