@@ -40,10 +40,16 @@ dependencies {
 	implementation 'org.webjars:bootstrap:3.3.7'
 	implementation 'org.webjars:jquery:3.1.1-1'
 		
-	
-	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.1.RELEASE'
-	
-	
+	compileOnly("org.springframework.boot:spring-boot-devtools") 
+ 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+ 	
+ 	test {
+ 	   useJUnitPlatform {
+    		includeEngines 'junit-vintage'
+        	// excludeEngines 'junit-jupiter'
+    }
+ 	
+	// testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.1.RELEASE'
 	//testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 	// testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.3.8.RELEASE'
