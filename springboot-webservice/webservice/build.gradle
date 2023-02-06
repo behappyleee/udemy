@@ -72,5 +72,9 @@ test {
 	useJUnitPlatform()
 }
 
+// plain jar 생성 방지 하도록 수정
+jar {
+	enabled=false
+}
 
 
