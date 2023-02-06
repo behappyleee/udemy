@@ -35,23 +35,9 @@
                     <td th:text="${board.author}"> Author 입니다.</td>
                  	<td th:text="${board.modifiedDate}"> 최종 수정일 입니다.</td>
                 </tr>
-            
-	            <!--
-	            {{#each posts}}
-	                <tr>
-	                    <td>{{id}}</td>
-	                    <td>{{title}}</td>
-	                    <td>{{author}}</td>
-	                    <td>{{modifiedDate}}</td>
-	                </tr>
-	            {{/each}}
-	            -->
-	            
             </tbody>
     	</table>	
     </div>
-	
-	
 	
 	 <!-- Modal 영역 -->
 	 <div class="modal fade" id="savePostsModal" tabindex="-1" role="dialog" aria-labelledby="savePostsLabel" aria-hidden="true">
@@ -86,20 +72,18 @@
             </div>
         </div>
     </div>
-
-
-	<script type="text/javascript" th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}"></script>
- 	<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
- 	<!--custom js 추가-->
-    <!-- <script type="text/javascript" src="/js/app/main.js"></script>-->
-    <script type="text/javascript" th:src="@{/js/app/main.js}"></script>
-
-
+    
 	<!-- springboot 는 기본적으로 src/main/resources/static 은 URL 에서 / 로 지정 -->
 	<!-- css 와 js 선언 위치가 다름, 이렇게 하는 이유는 웹 페이지 로딩 속도를 높이기 위함 -->
 	<!-- html 은 최상단 부터 실행이 되어서 head 가 다 실행되고나서 body 가 실행이 됨 
 		 즉 head 가 다 불러지지 않으면 사용자 화면 에서는 백지 화면만 노출이 됨
 		 js 의 용량이 크면 클 수록 body 실행 부분이 늦어지기에 body 하다엔 두어 화면을 전부 표출 후 그 뒤에 호출
 	-->
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}"></script>
+ 	<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+ 	<!--custom js 추가-->
+    <!-- <script type="text/javascript" src="/js/app/main.js"></script>-->
+    <script type="text/javascript" th:src="@{/js/app/main.js}"></script>
+	
 </body>
 </html>
