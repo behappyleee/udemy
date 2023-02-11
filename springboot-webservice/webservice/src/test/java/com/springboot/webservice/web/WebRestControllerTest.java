@@ -11,11 +11,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("local")
+// @TestPropertySource(locations = "/application.properties")
 public class WebRestControllerTest {
 	
 	Logger logger = LoggerFactory.getLogger(WebRestControllerTest.class);
@@ -33,9 +35,6 @@ public class WebRestControllerTest {
 		// then 
 		assertThat(profile).isEqualTo("local");
 	}
-	
-	
-	
 	
 	
 }
