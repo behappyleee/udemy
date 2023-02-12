@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.springboot'
-version = '0.0.7'
+version = '0.0.8'
 sourceCompatibility = '17'
 
 configurations {
@@ -40,8 +40,12 @@ dependencies {
 	implementation 'org.webjars:bootstrap:3.3.7'
 	implementation 'org.webjars:jquery:3.1.1-1'
 		
+	// Maria DB 추가
+	// https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client'
+		
 	compileOnly("org.springframework.boot:spring-boot-devtools") 
-
+	
     //JUnit4 추가
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.1.RELEASE'
 	//JUnit4 추가
